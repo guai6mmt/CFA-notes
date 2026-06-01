@@ -34,4 +34,5 @@ EOF
   printf 'Saved deployment settings in %s/.env\n' "${INSTALL_DIR}"
 fi
 
-exec bash "${INSTALL_DIR}/scripts/deploy.sh"
+cd "${INSTALL_DIR}"
+exec bash scripts/deploy.sh
