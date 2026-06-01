@@ -1,0 +1,64 @@
+site_name: CFA 二级笔记
+site_description: CFA Level II 学习笔记
+site_url: ""
+docs_dir: .mkdocs-docs
+site_dir: site
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+
+nav:
+  - 首页: index.md
+  - 数量: 数量/数量.md
+  - 经济学: 经济学/经济.md
+  - 财务:
+      - 财务: 财务/财务.md
+      - 财务新: 财务/财务新.md
+      - 财务报表建模: 财务/Financial_Statement_Modeling_财务报表建模笔记.md
+  - 公金: 公金/公金.md
+  - 权益: 权益/权益.md
+  - 固收: 固收/固收.md
+  - 衍生品: 衍生品/衍生品.md
+  - 另类: 另类/另类.md
+  - 组合: 组合/组合.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - assets/stylesheets/extra.css

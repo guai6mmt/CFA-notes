@@ -1,0 +1,6 @@
+:80 {
+	encode zstd gzip
+
+	root * /srv
+	file_server
+}

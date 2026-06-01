@@ -1,0 +1,7 @@
+services:
+  notes:
+    build: .
+    container_name: cfa-level-2-notes
+    restart: unless-stopped
+    ports:
+      - "8889:80"
