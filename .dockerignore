@@ -1,5 +1,8 @@
 .git
+.env
 .mkdocs-docs
 .venv
 site
-数量/html-preview
+**/__pycache__
+**/.DS_Store
+**/html-preview

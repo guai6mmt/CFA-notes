@@ -2,4 +2,7 @@
 set -euo pipefail
 
 git pull --ff-only
-docker compose up -d --build
+docker compose config --quiet
+docker compose build --pull notes
+docker compose up -d --wait notes
+docker compose ps notes

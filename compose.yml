@@ -1,7 +1,12 @@
 services:
   notes:
     build: .
-    container_name: cfa-level-2-notes
     restart: unless-stopped
     ports:
-      - "8889:80"
+      - "${NOTES_BIND_ADDRESS:-0.0.0.0}:${NOTES_PORT:-8889}:80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s

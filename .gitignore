@@ -1,3 +1,4 @@
+.env
 .mkdocs-docs/
 .venv/
 site/
