@@ -46,6 +46,7 @@ nav:
   - 衍生品: 衍生品/衍生品.md
   - 另类: 另类/另类.md
   - 组合: 组合/组合.md
+  - 错题: 错题/错题.md
 
 markdown_extensions:
   - admonition
