@@ -97,6 +97,20 @@ python -m venv .venv
 
 Docker 构建时会自动整理笔记文件。本地新增图片或修改笔记后，如需再次预览，请重新运行 `scripts/stage_docs.py`。
 
+## 日常修改后上传 GitHub
+
+每次本地修改笔记或新增图片后，在当前仓库目录运行：
+
+```powershell
+git status
+python scripts\stage_docs.py
+git add -A
+git commit -m "Update CFA notes"
+git push origin main
+```
+
+如果只是少量文字修改，也可以跳过 `stage_docs.py`。提交前建议先看一眼 `git status`，确认本次改动都是要上传的内容。
+
 ## 其他说明
 
 - 页面中的公式使用固定版本的 MathJax CDN。浏览器需要能够访问 `https://unpkg.com` 才能渲染公式。
