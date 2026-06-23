@@ -15,3 +15,23 @@
     font-size: 0.76rem;
   }
 }
+
+.tts-player {
+  margin: 0 0 1rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  background: var(--md-code-bg-color);
+}
+
+.tts-player__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.tts-player audio {
+  display: block;
+  width: 100%;
+}

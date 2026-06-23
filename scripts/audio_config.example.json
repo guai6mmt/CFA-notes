@@ -1,0 +1,7 @@
+{
+  "api_key": "在这里填写你的 DashScope / 阿里云百炼 API Key（sk- 开头）",
+  "rewrite_model": "qwen-plus",
+  "tts_model": "qwen-tts",
+  "tts_voice": "Cherry",
+  "rewrite_prompt": ""
+}

@@ -3,3 +3,7 @@
 .venv/
 site/
 数量/html-preview/
+scripts/audio_config.json
+scripts/.audio_cache/
+__pycache__/
+*.pyc
