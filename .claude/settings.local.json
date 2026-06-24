@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./.venv/Scripts/python.exe scripts/generate_audio.py)",
+      "Bash(./.venv/Scripts/python.exe scripts/stage_docs.py)",
+      "Bash(./.venv/Scripts/python.exe -m mkdocs build --strict)",
+      "Bash(./.venv/Scripts/python.exe -m py_compile scripts/generate_audio.py)",
+      "Bash(echo \"\\(退出码 $? —— 期望 1，因为还没配 API Key\\)\")"
+    ]
+  }
+}
