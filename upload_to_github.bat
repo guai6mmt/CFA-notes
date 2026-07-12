@@ -51,17 +51,22 @@ if exist ".git\rebase-apply" (
   goto fail
 )
 
-set "PY_CMD=python"
-if exist ".venv\Scripts\python.exe" set "PY_CMD=.venv\Scripts\python.exe"
-
-%PY_CMD% --version >nul 2>nul
-if errorlevel 1 (
+set "PY_CMD="
+if exist ".venv\Scripts\python.exe" (
+  ".venv\Scripts\python.exe" --version >nul 2>nul
+  if not errorlevel 1 set "PY_CMD=.venv\Scripts\python.exe"
+)
+if not defined PY_CMD (
+  python --version >nul 2>nul
+  if not errorlevel 1 set "PY_CMD=python"
+)
+if not defined PY_CMD (
   py -3 --version >nul 2>nul
-  if errorlevel 1 (
-    echo ERROR: Python is not available. Install Python or create .venv first.
-    goto fail
-  )
-  set "PY_CMD=py -3"
+  if not errorlevel 1 set "PY_CMD=py -3"
+)
+if not defined PY_CMD (
+  echo ERROR: Python is not available. Install Python or create .venv first.
+  goto fail
 )
 
 echo [1/5] Preparing MkDocs source files...
