@@ -51,33 +51,7 @@ if exist ".git\rebase-apply" (
   goto fail
 )
 
-set "PY_CMD="
-if exist ".venv\Scripts\python.exe" (
-  ".venv\Scripts\python.exe" --version >nul 2>nul
-  if not errorlevel 1 set "PY_CMD=.venv\Scripts\python.exe"
-)
-if not defined PY_CMD (
-  python --version >nul 2>nul
-  if not errorlevel 1 set "PY_CMD=python"
-)
-if not defined PY_CMD (
-  py -3 --version >nul 2>nul
-  if not errorlevel 1 set "PY_CMD=py -3"
-)
-if not defined PY_CMD (
-  echo ERROR: Python is not available. Install Python or create .venv first.
-  goto fail
-)
-
-echo [1/5] Preparing MkDocs source files...
-%PY_CMD% scripts\stage_docs.py
-if errorlevel 1 (
-  echo ERROR: scripts\stage_docs.py failed.
-  goto fail
-)
-
-echo.
-echo [2/5] Staging local changes...
+echo [1/4] Staging local changes...
 git add -A
 if errorlevel 1 (
   echo ERROR: git add failed.
@@ -95,7 +69,7 @@ if errorlevel 2 (
 
 if errorlevel 1 (
   echo.
-  echo [3/5] Creating commit...
+  echo [2/4] Creating commit...
   git commit -m "%COMMIT_MSG%"
   if errorlevel 1 (
     echo ERROR: git commit failed.
@@ -103,11 +77,11 @@ if errorlevel 1 (
   )
 ) else (
   echo.
-  echo [3/5] No local changes to commit.
+  echo [2/4] No local changes to commit.
 )
 
 echo.
-echo [4/5] Pulling latest remote changes with rebase...
+echo [3/4] Pulling latest remote changes with rebase...
 git pull --rebase origin "%BRANCH%"
 if errorlevel 1 (
   echo ERROR: git pull --rebase failed.
@@ -118,7 +92,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [5/5] Pushing to GitHub...
+echo [4/4] Pushing to GitHub...
 git push -u origin "%BRANCH%"
 if errorlevel 1 (
   echo ERROR: git push failed.
